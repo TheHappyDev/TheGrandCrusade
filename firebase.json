@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "TheGrandCrusade",
+      "public": "dist/TheGrandCrusade",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

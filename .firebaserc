@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "thegrandcrusade": {
+      "hosting": {
+        "TheGrandCrusade": [
+          "thegrandcrusade"
+        ]
+      }
+    }
+  }
+}
