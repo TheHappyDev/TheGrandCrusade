@@ -1,0 +1,99 @@
+$color: #707070;
+$base-color: rgba($color, 0.4);
+$base-hover: rgba($color, 0.70);
+$necron-color: #68c004;
+$thounsandsons-color: #09d2dc;
+$adeptusMilitarium-color: #093816;
+$custodes-color: #ffea22;
+$ultra-marine-color: #0020ff;
+
+.hexmap{
+  padding: 35px;
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 1500px 950px;
+  border:1px solid silver;
+  max-width:100%;
+  min-width:100%;
+  margin: auto;
+  overflow:auto
+}
+
+.map-container
+{
+    display: flex; /* or inline-flex */
+    justify-content:flex-start;
+    align-items:center;
+    width:1050px;
+    flex-wrap:wrap;
+    flex-direction:row;
+    margin: 0 auto;
+    .hexagon:nth-child(7), .hexagon:nth-child(19){
+    margin-left:84px;
+   
+}
+}
+.hexagon {
+  position: relative;
+  width: 150px;
+  height: 86px;
+  background-color: $base-color;
+  margin:20px 5px;
+  /* float: left; */
+  display: inline-block;
+  cursor: pointer;
+  opacity:0.7;
+
+
+}
+
+.hexagon p{
+  position: absolute;
+  color: rgba(30,30,30,1);
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight:bold;
+  font-size:1.7em;
+}
+
+.hexagon:hover {
+  opacity:0.8;
+  p{
+    color: #000;
+  }
+
+}
+
+.hexagon:hover:before{
+  border-bottom-color: $base-hover;
+}
+.hexagon:hover:after{
+  border-top-color: $base-hover;
+}
+
+
+.hexagon:hover{
+  background-color: $base-hover;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 30px solid $base-color;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 30px solid $base-color;
+}
+
