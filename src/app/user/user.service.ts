@@ -13,10 +13,10 @@ export class UserService {
 
   getUser(userId: string) {
     if (this.users) {
-      const cached = this.users.find(v => v.id === id);
+      const cached = this.users.find(v => v.id === userId);
       return of(cached);
     } else {
-      return this.db.collection('users').doc(id).valueChanges();
+      return this.db.collection('users').doc(userId).valueChanges();
     }
   }
 
