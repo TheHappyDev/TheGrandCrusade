@@ -28,10 +28,6 @@ export class BoardComponent implements OnInit {
 
     this.board = this.boardService.getBoard(this.boardId);
 
-    
-
-    
-
 
   }
 

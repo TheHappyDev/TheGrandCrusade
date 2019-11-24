@@ -8,10 +8,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BoardComponent } from './board/board.component';
 import { BoardListComponent } from './board-list/board-list.component';
+import { TileComponent } from './tile/tile.component';
 
 
 @NgModule({
-  declarations: [BoardComponent, BoardListComponent],
+  declarations: [BoardComponent, BoardListComponent, TileComponent],
   imports: [
     CommonModule,
     CampaignRoutingModule,
