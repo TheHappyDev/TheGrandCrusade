@@ -10,4 +10,5 @@ export interface Board{
 export interface Tile{
     index?: number;
     occupier?: User;
+    uid?: string;
 }

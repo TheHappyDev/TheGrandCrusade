@@ -5,6 +5,7 @@ import { Board, Tile} from '../board.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-board',
@@ -23,12 +24,14 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('id');
 
+    this.userService.subscribeToUsers();
+
     this.board = this.boardService.getBoard(this.boardId);
 
-    let x = null;
-    this.board.subscribe(
-      res => x = res,
-    );
+    
+
+    
+
 
   }
 

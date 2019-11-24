@@ -28,10 +28,9 @@ export class BoardService {
   getBoard(boardId: string) {
     return this.db
       .collection('boards')
-      .doc(boardId).collection('occupier')
+      .doc(boardId)
       .valueChanges();
   }
-
   /**
    * Delete board
    */
@@ -60,9 +59,7 @@ export class BoardService {
       switchMap(user => {
         if (user) {
           return this.db
-            .collection<Board>('boards', ref =>
-              ref.where('uid', '==', user.uid).orderBy('createdOn')
-            )
+            .collection<Board>('boards')
             .valueChanges({ idField: 'id' });
         } else {
           return [];

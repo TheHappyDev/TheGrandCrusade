@@ -1,12 +1,11 @@
 <div *ngIf="board | async as board">
     <div class="hexmap">
         <div class="map-container">
-Tom sucks Ass
             <div *ngFor="let tile of board.tiles; let i = index" class ="hexagon" [ngStyle]="{'background-color': tile.occupier.color}">
 
-                hello
-                    <p>{{tile.occupier.logo}}</p>
-                    <p>{{tile.occupier.color}}</p>
+                <p>{{i}}</p>
+                  
+                   
                     <img src="{{tile.occupier.logo}}"/>
                    
         </div>
