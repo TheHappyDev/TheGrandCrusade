@@ -10,7 +10,7 @@ import { User } from './user.model';
 export class UserService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
-  users = null;
+  users :User[]; 
   subscription;
 
   subscribeToUsers() {

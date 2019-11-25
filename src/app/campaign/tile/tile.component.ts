@@ -22,7 +22,7 @@ export class TileComponent implements OnInit {
 
   ngOnInit() {
    
-    //this.tile.occupier = this.userService.getUser(this.tile.uid);
+    this.tile.occupier = this.userService.getUser(this.tile.uid);
   }
 
 }
