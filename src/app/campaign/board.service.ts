@@ -25,17 +25,11 @@ export class BoardService {
     });
   }
 
+
   getBoard(boardId: string) {
     return this.db
-      .collection('boards')
+      .collection<Board>('boards')
       .doc(boardId)
-      .valueChanges();
-  }
-
-  getBoardTiles(boardId: string) {
-    return this.db
-      .collection('boards')
-      .doc(boardId).collection('tiles')
       .valueChanges();
   }
   /**

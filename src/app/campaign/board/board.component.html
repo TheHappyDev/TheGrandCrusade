@@ -1,4 +1,5 @@
 <div *ngIf="board | async as board">
+        {{board.title}}
     <div class="hexmap">
         <div class="map-container">
             <app-tile *ngFor="let tile of board.tiles; let i = index" [tile]="tile"> </app-tile>

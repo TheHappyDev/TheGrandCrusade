@@ -1,6 +1,8 @@
 <mat-card *ngFor="let board of boards; let i = index">
     <mat-card-header>{{ board.title }}</mat-card-header>
     <mat-card-actions>
-        <a mat-raised-button color="accent" routerLink="/campaign/{{board.id}}">Show more</a>
+            <a mat-raised-button color="primary" routerLink="/campaign/{{board.id}}">Map</a>
+
+            <a mat-raised-button color="accent" routerLink="/campaign/{{board.id}}">Narration</a>
     </mat-card-actions>
 </mat-card>
