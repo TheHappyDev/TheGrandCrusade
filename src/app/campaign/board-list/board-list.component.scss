@@ -1,0 +1,15 @@
+.card-container {
+  display: flex;
+  mat-card {
+    flex: 0 0 30%;
+    min-height: 500px;
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    mat-card-actions {
+      text-align: end;
+      margin: 10px;
+    }
+  }
+}

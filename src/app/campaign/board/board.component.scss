@@ -11,7 +11,6 @@ $ultra-marine-color: #0020ff;
   padding: 35px;
   position: relative;
   display: block;
-  box-shadow: 13px 17px 38px -4px rgba(117,117,117,0.65);
   overflow:auto
 }
 
@@ -23,14 +22,14 @@ $ultra-marine-color: #0020ff;
     width:69em; 
     flex-wrap:wrap;
     flex-direction:row;
-    margin: 0 auto;
+    margin: 20px auto;
    background-image: url('../../../assets/An\ Alir\ Nov25\ 22-47.png');
    background-repeat: no-repeat;
    background-repeat: no-repeat;
    background-clip: border-box;
    background-size: cover;
    padding: 2em 0 2em 7em;
-
+   box-shadow: 13px 17px 38px -4px rgba(117,117,117,0.65);
    app-tile:nth-child(7), app-tile:nth-child(19){
     margin-left:84px;
     }
