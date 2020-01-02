@@ -315,6 +315,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: ". header header header header ." ". main main main main ." ". main main main main ." ". footer footer footer footer .";
+    @media only screen and (max-width: 748px){
+        grid-template-columns: 12px 1fr 1fr 1fr 1fr 12px;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: ". header header header header ." ". main main main main ." ". main main main main ." ". footer footer footer footer .";
+    }
   }
   
   .grid-main { grid-area: main; }

@@ -1,1 +1,40 @@
-<p>profile works!</p>
+
+<div class="profile-page">
+    <div class="profile-info">
+        <h1>User Name</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field [color]="'accent'">
+                <input
+                  matInput
+                  formControlName="display-name"
+                  type="text"
+                  placeholder="Display Name"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            <mat-form-field [color]="'accent'">
+                <input
+                  matInput
+                  formControlName="tile-color"
+                  type="text"
+                  placeholder="Tile Colour"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+              <mat-form-field [color]="'accent'">
+                <input
+                  matInput
+                  formControlName="sigil"
+                  type="text"
+                  placeholder="Army Sigil"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+  </form>      
+    </div>
+    <div class="hexagon">
+        <div class="hex">
+        </div>
+    </div>
+    <div class="game-history"></div>
+</div>

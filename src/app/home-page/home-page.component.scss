@@ -8,7 +8,14 @@
   position:relative;
    animation: search 60s infinite;
   animation-timing-function: linear;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: 200%;
   @media only screen and (max-width: 748px){
+   background-size: 400%;
     background-image: url('../../assets/home-banner-mobile.svg');
   }
 

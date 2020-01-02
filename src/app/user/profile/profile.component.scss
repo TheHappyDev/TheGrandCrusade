@@ -1,0 +1,84 @@
+.profile-page{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 90vh;
+    grid-gap: 50px 4vw;    
+
+}
+.hexagon{
+    grid-column: 2;
+    grid-row: 1;
+    margin-right: 0;
+    align-self: center;
+    position: relative;
+}
+.profile-info{
+    grid-column: 1;
+    grid-row: 1;
+    padding:50px;
+}
+.game-history{
+    grid-column: 3;
+    grid-row: 1;
+    padding:50px;
+}
+$color: #707070;
+$base-color: rgba($color, 0.4);
+$base-hover: rgba($color, 0.70);
+$hex-size: 20em; 
+
+.hex {
+    position: absolute;
+    margin: auto;
+    width: $hex-size; height: ($hex-size * 1.7);
+    border-radius: 1em/.5em;
+    background: #ccc;
+    transform: rotate(-90deg);
+    display: inline-block;
+    transition: all 150ms ease-in-out;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .hex:before, .hex:after {
+    position: absolute;
+    width: inherit; height: inherit;
+    border-radius: inherit;
+    background: inherit;
+    content: '';
+  }
+  .hex:before {
+    transform: rotate(60deg);
+  }
+  .hex:after {
+    transform: rotate(-60deg);
+  }
+  .hex:hover {
+    background: #F58787;
+    cursor: pointer;
+  }
+  
+  .tile-logo
+  {
+      max-height: 70px;
+      max-width: 70px;
+      height:100%;
+      width:100%;
+      object-fit: cover;
+      overflow: hidden;
+      opacity: 1;
+      position: absolute;
+      z-index: 5;
+      margin: 0 auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(60%) rotate(90deg);
+  
+  }
+
+
+  

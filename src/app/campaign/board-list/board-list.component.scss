@@ -7,6 +7,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media only screen and (max-width: 748px){
+        flex: 0 0 100%;
+    }
     mat-card-actions {
       text-align: end;
       margin: 10px;
