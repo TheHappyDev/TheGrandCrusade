@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { User } from './user.model';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class UserService {
     }
   }
 
-  getUser(userId: string) {
+  getUser(userId: string):Observable<User>{
     if (this.users) {
       const cached = this.users.find(v => v.id === userId);
       return of(cached);

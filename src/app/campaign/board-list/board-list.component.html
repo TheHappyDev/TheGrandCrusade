@@ -6,10 +6,10 @@
             <mat-card *ngFor="let board of boards; let i = index">
                 <mat-card-header><h2>{{ board.title }}</h2></mat-card-header>
                 <mat-card-actions>
-                    <a mat-raised-button color="primary" routerLink="/campaign/{{board.id}}">Map</a>
-                    <a mat-raised-button color="accent" routerLink="/campaign/{{board.id}}">Narration</a>
-                    <a mat-raised-button color="basic" routerLink="/campaign/{{board.id}}">League Table</a>
-                    <a mat-raised-button color="warn" routerLink="/campaign/{{board.id}}">History</a>
+                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">Map</a>
+                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">Narration</a>
+                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">League Table</a>
+                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">History</a>
                 </mat-card-actions>
             </mat-card>
         </div>

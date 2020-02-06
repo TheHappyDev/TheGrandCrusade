@@ -21,6 +21,17 @@
     grid-column: 3;
     grid-row: 1;
     padding:50px;
+    mat-card{
+        margin-bottom:1em;
+        &.loss
+        {
+            background-color:rgb(247, 94, 94);
+        }
+        &.win
+        {
+            background-color:#39cf52;
+        }
+    }
 }
 $color: #707070;
 $base-color: rgba($color, 0.4);
@@ -62,8 +73,8 @@ $hex-size: 20em;
   
   .tile-logo
   {
-      max-height: 70px;
-      max-width: 70px;
+      max-height: $hex-size;
+      max-width: $hex-size;
       height:100%;
       width:100%;
       object-fit: cover;
@@ -76,7 +87,7 @@ $hex-size: 20em;
       bottom: 0;
       left: 0;
       right: 0;
-      transform: translateY(60%) rotate(90deg);
+      transform: translateY($hex-size/ 2.66666) rotate(90deg);
   
   }
 

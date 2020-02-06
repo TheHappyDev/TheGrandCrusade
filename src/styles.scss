@@ -66,8 +66,6 @@ $TheGrandCrusade-theme: map_merge($TheGrandCrusade-theme, (background: $backgrou
 @include angular-material-theme($TheGrandCrusade-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
-
 /**
 * Generated theme by Material Theme Generator
 * https://material-theme-generator.travetto.io
@@ -213,43 +211,43 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #fdd835;
-  --primary-lighter-color: #fef3c2;
-  --primary-darker-color: #fcc822;
-  --text-primary-color: #{$dark-primary-text};
+  --primary-color: #d3363c;
+  --primary-lighter-color: #f2c3c5;
+  --primary-darker-color: #c22227;
+  --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
-  --text-primary-darker-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-  main: #fdd835,
-  lighter: #fef3c2,
-  darker: #fcc822,
-  200: #fdd835, // For slide toggle,
+  main: #d3363c,
+  lighter: #f2c3c5,
+  darker: #c22227,
+  200: #d3363c, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #8e24aa;
-  --accent-lighter-color: #ddbde6;
-  --accent-darker-color: #711690;
-  --text-accent-color: #{$light-primary-text};
+  --accent-color: #45afcf;
+  --accent-lighter-color: #c7e7f1;
+  --accent-darker-color: #2e96bd;
+  --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$light-primary-text};
 }
 
 $mat-accent: (
-  main: #8e24aa,
-  lighter: #ddbde6,
-  darker: #711690,
-  200: #8e24aa, // For slide toggle,
+  main: #45afcf,
+  lighter: #c7e7f1,
+  darker: #2e96bd,
+  200: #45afcf, // For slide toggle,
   contrast : (
-    main: $light-primary-text,
+    main: $dark-primary-text,
     lighter: $dark-primary-text,
     darker: $light-primary-text,
   )
@@ -303,6 +301,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   padding: .5em .85em;
   min-height: 2.5em;
 }
+
 
 
 

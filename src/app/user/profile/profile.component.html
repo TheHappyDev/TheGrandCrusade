@@ -1,23 +1,23 @@
 
-<div class="profile-page">
+<div class="profile-page" *ngIf="this.user">
     <div class="profile-info">
-        <h1>User Name</h1>
+    <h1>{{this.user.displayName}}</h1>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <mat-form-field [color]="'accent'">
                 <input
                   matInput
-                  formControlName="display-name"
+                  formControlName="displayName"
                   type="text"
-                  placeholder="Display Name"
+                  placeholder="{{this.user.displayName}}"
                   autocomplete="off"
                 />
               </mat-form-field>
             <mat-form-field [color]="'accent'">
                 <input
                   matInput
-                  formControlName="tile-color"
+                  formControlName="color"
                   type="text"
-                  placeholder="Tile Colour"
+                  placeholder="{{this.user.color}}"
                   autocomplete="off"
                 />
               </mat-form-field>
@@ -26,15 +26,28 @@
                   matInput
                   formControlName="sigil"
                   type="text"
-                  placeholder="Army Sigil"
+                  placeholder="{{this.user.logo}}"
                   autocomplete="off"
                 />
               </mat-form-field>
-  </form>      
+  </form>
     </div>
     <div class="hexagon">
-        <div class="hex">
+        <div class="hex" [ngStyle]="{'background-color': this.user.color}">
+          <img src="{{this.user.logo}}" class="tile-logo"/>
         </div>
     </div>
-    <div class="game-history"></div>
+    <div class="game-history">
+        <h2>Match History</h2>
+        <mat-card class="loss">
+            <mat-card-content><h3>Lost</h3><span>You lost to X</span></mat-card-content>
+        </mat-card>
+        <mat-card class="win">
+            <mat-card-content><h3>Lost</h3><span>You beat X</span></mat-card-content>
+        </mat-card>
+        <mat-card class="loss">
+            <mat-card-content><h3>Lost</h3><span>You lost to X</span></mat-card-content>
+        </mat-card>
+
+    </div>
 </div>
