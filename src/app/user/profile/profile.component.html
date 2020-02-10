@@ -8,8 +8,9 @@
                   matInput
                   formControlName="displayName"
                   type="text"
-                  placeholder="{{this.user.displayName}}"
+                  placeholder="display name"
                   autocomplete="off"
+                  value="{{this.user.displayName}}"
                 />
               </mat-form-field>
             <mat-form-field [color]="'accent'">
@@ -17,8 +18,9 @@
                   matInput
                   formControlName="color"
                   type="text"
-                  placeholder="{{this.user.color}}"
+                  placeholder="tile colour"
                   autocomplete="off"
+                  value="{{this.user.color}}"
                 />
               </mat-form-field>
               <mat-form-field [color]="'accent'">
@@ -26,15 +28,24 @@
                   matInput
                   formControlName="sigil"
                   type="text"
-                  placeholder="{{this.user.logo}}"
+                  placeholder="tile sigil"
                   autocomplete="off"
+                  value="{{this.user.sigil}}"
                 />
               </mat-form-field>
+              <button
+        mat-raised-button
+        [color]="'accent'"
+        type="submit"
+        [disabled]="loading"
+      >
+        Update app-profile
+      </button>
   </form>
     </div>
     <div class="hexagon">
         <div class="hex" [ngStyle]="{'background-color': this.user.color}">
-          <img src="{{this.user.logo}}" class="tile-logo"/>
+          <img src="{{this.user.sigil}}" class="tile-logo"/>
         </div>
     </div>
     <div class="game-history">

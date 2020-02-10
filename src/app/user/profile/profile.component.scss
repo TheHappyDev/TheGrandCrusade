@@ -3,6 +3,10 @@
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 90vh;
     grid-gap: 50px 4vw;    
+    @media only screen and (max-width: 768px){
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 10em auto;
+    }
 
 }
 .hexagon{
@@ -11,16 +15,30 @@
     margin-right: 0;
     align-self: center;
     position: relative;
+    @media only screen and (max-width: 768px){
+      grid-column: 1;
+      grid-row: 2;
+    }
+
 }
 .profile-info{
     grid-column: 1;
     grid-row: 1;
     padding:50px;
+    @media only screen and (max-width: 768px){
+      grid-column: 1;
+      grid-row: 1;
+    }
+
 }
 .game-history{
     grid-column: 3;
     grid-row: 1;
     padding:50px;
+    @media only screen and (max-width: 768px){
+      grid-column: 1;
+      grid-row: 3;
+    }
     mat-card{
         margin-bottom:1em;
         &.loss
@@ -36,12 +54,29 @@
 $color: #707070;
 $base-color: rgba($color, 0.4);
 $base-hover: rgba($color, 0.70);
-$hex-size: 20em; 
 
+
+@mixin hex-size($hex-size) {
+  // your SCSS here, e.g.
+    width: $hex-size; 
+    height: ($hex-size * 1.7);
+}
+@mixin hex-sigil-size($hex-size) {
+  // your SCSS here, e.g.
+  max-height: $hex-size;
+  max-width: $hex-size;
+  min-height: $hex-size;
+  transform: translateY($hex-size/ 2.66666) rotate(90deg);
+}
+
+.mat-form-field{
+  margin:4px 8px;
+}
 .hex {
     position: absolute;
     margin: auto;
-    width: $hex-size; height: ($hex-size * 1.7);
+    // width: $hex-size; 
+    // height: ($hex-size * 1.7);
     border-radius: 1em/.5em;
     background: #ccc;
     transform: rotate(-90deg);
@@ -52,6 +87,13 @@ $hex-size: 20em;
     left: 0;
     right: 0;
     bottom: 0;
+    @media screen and (max-width: 768px) {
+      @include hex-size(10em);
+
+    }
+    @media screen and (min-width: 769px) {
+      @include hex-size(20em);
+    }
   }
   .hex:before, .hex:after {
     position: absolute;
@@ -73,8 +115,6 @@ $hex-size: 20em;
   
   .tile-logo
   {
-      max-height: $hex-size;
-      max-width: $hex-size;
       height:100%;
       width:100%;
       object-fit: cover;
@@ -87,7 +127,13 @@ $hex-size: 20em;
       bottom: 0;
       left: 0;
       right: 0;
-      transform: translateY($hex-size/ 2.66666) rotate(90deg);
+      @media screen and (max-width: 768px) {
+        @include hex-sigil-size(10em);
+  
+      }
+      @media screen and (min-width: 769px) {
+        @include hex-sigil-size(20em);
+      }
   
   }
 

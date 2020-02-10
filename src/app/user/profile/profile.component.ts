@@ -40,13 +40,11 @@ export class ProfileComponent implements OnInit {
   }
   async onSubmit() {
     this.loading = true;
+    let userUpdate = this.form.value;
 
-    const displayName = this.displayName.value;
-    const color = this.color.value;
-    const sigil = this.sigil.value;
-
+    debugger;
     try {
-
+      this.userService.updateUser(this.user.id, userUpdate)
     } catch (err) {
       this.serverMessage = err;
     }

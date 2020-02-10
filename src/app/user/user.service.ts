@@ -10,7 +10,7 @@ import { User } from './user.model';
 export class UserService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
-  users :User[]; 
+  users : User[]; 
   subscription;
 
   subscribeToUsers() {
@@ -29,6 +29,12 @@ export class UserService {
     } else {
       return this.db.collection<User>('users').doc(userId).valueChanges();
     }
+  }
+  updateUser(userId: string, user:User){
+    if (this.users) {
+      this.users.filter(v => v.id !== userId);
+    }
+    this.db.collection<User>('users').doc(userId).update(user);
   }
 
 }
