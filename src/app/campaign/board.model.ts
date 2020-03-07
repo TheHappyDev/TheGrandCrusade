@@ -5,6 +5,7 @@ export interface Board{
     title? : string;
     tiles?: Tile[];
     createdOn : Date;
+    description? : string;
 }
 
 export interface Tile{

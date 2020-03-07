@@ -25,18 +25,18 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     let loggedInUser = this.afAuth.auth.currentUser;
-    console.log(loggedInUser.uid);
 
-    this.userService.getUser(loggedInUser.uid).subscribe(u => (this.user = u));
-
-    this.form = this.fb.group({
-      displayName: ['',[Validators.minLength(3), Validators.required]],
+    this.userService.getUser(loggedInUser.uid).subscribe(u => {this.form = this.fb.group({
+      displayName: [u.displayName,[Validators.minLength(3), Validators.required]],
       color: [
-        '',
+        u.color,
         [Validators.minLength(6), Validators.required]
       ],
-      sigil: ['', []]
+      sigil: [u.sigil, []]
     });
+    this.user = u});
+
+    
   }
   async onSubmit() {
     this.loading = true;

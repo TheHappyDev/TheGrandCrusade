@@ -36,5 +36,8 @@ export class UserService {
     }
     this.db.collection<User>('users').doc(userId).update(user);
   }
+  createUser(user:User){
+    this.db.collection<User>('users').add(user);
+  }
 
 }

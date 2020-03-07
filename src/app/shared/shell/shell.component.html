@@ -1,48 +1,81 @@
-<mat-sidenav-container class="sidenav-container">
+<nav class="navbar">
+  <ul class="navbar-nav scrollable">
+    <li class="logo">
+      <a routerLink="/" class="nav-link">
+        <span class="link-text logo-text">Grand Crusade</span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+          class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
+          <g class="fa-group">
+            <path fill="currentColor"
+              d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+              class="fa-secondary"></path>
+            <path fill="currentColor"
+              d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+              class="fa-primary"></path>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li class="nav-item logo-mobile">
+      <a routerLink="/" class="nav-link">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
+          class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path fill="currentColor"
+            d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z">
+          </path>
+        </svg>
+        <span class="link-text">Home</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/leagues" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas"
+          data-icon="scroll" class="svg-inline--fa fa-scroll fa-w-20" role="img" viewBox="0 0 640 512">
+          <path fill="currentColor"
+            d="M48 0C21.53 0 0 21.53 0 48v64c0 8.84 7.16 16 16 16h80V48C96 21.53 74.47 0 48 0zm208 412.57V352h288V96c0-52.94-43.06-96-96-96H111.59C121.74 13.41 128 29.92 128 48v368c0 38.87 34.65 69.65 74.75 63.12C234.22 474 256 444.46 256 412.57zM288 384v32c0 52.93-43.06 96-96 96h336c61.86 0 112-50.14 112-112 0-8.84-7.16-16-16-16H288z" />
+        </svg>
+        <span class="link-text">Leagues</span>
+      </a>
+    </li>
 
-  <!-- SIDENAV -->
-
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/" (click)="drawer.close()">Home</a>
-      <a mat-list-item routerLink="/campaign" (click)="drawer.close()">Campaigns</a>
-      <a mat-list-item routerLink="/user" (click)="drawer.close()" *ngIf="!(afAuth.authState | async)">Login</a>
-      <a mat-list-item routerLink="/user/hello" (click)="drawer.close()"
-        *ngIf="afAuth.authState | async as user">Profile</a>
-
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-
-    <!-- TOP TOOLBAR-->
-
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-
-
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="logo" routerLink="/">The Grand Crusade</span>
-
-      <span class="fill-space"></span>
-      <div *ngIf="!(isHandset$ | async)">
-        <a mat-button routerLink="/campaign">Campaigns</a>
-        <a mat-button routerLink="/user" *ngIf="!(afAuth.authState | async)">Login</a>
-        <a mat-button routerLink="/user/{{user.uid}}" *ngIf="afAuth.authState | async as user">
-          <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'">
-          Profile
-        </a>
-
-      </div>
-
-
-    </mat-toolbar>
-
-    <main>
-      <ng-content></ng-content>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <li class="nav-item">
+      <a routerLink="/campaign" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas"
+          data-icon="globe-asia" class="svg-inline--fa fa-globe-asia fa-w-16" role="img" viewBox="0 0 496 512">
+          <path fill="currentColor"
+            d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm-11.34 240.23c-2.89 4.82-8.1 7.77-13.72 7.77h-.31c-4.24 0-8.31 1.69-11.31 4.69l-5.66 5.66c-3.12 3.12-3.12 8.19 0 11.31l5.66 5.66c3 3 4.69 7.07 4.69 11.31V304c0 8.84-7.16 16-16 16h-6.11c-6.06 0-11.6-3.42-14.31-8.85l-22.62-45.23c-2.44-4.88-8.95-5.94-12.81-2.08l-19.47 19.46c-3 3-7.07 4.69-11.31 4.69H50.81C49.12 277.55 48 266.92 48 256c0-110.28 89.72-200 200-200 21.51 0 42.2 3.51 61.63 9.82l-50.16 38.53c-5.11 3.41-4.63 11.06.86 13.81l10.83 5.41c5.42 2.71 8.84 8.25 8.84 14.31V216c0 4.42-3.58 8-8 8h-3.06c-3.03 0-5.8-1.71-7.15-4.42-1.56-3.12-5.96-3.29-7.76-.3l-17.37 28.95zM408 358.43c0 4.24-1.69 8.31-4.69 11.31l-9.57 9.57c-3 3-7.07 4.69-11.31 4.69h-15.16c-4.24 0-8.31-1.69-11.31-4.69l-13.01-13.01a26.767 26.767 0 0 0-25.42-7.04l-21.27 5.32c-1.27.32-2.57.48-3.88.48h-10.34c-4.24 0-8.31-1.69-11.31-4.69l-11.91-11.91a8.008 8.008 0 0 1-2.34-5.66v-10.2c0-3.27 1.99-6.21 5.03-7.43l39.34-15.74c1.98-.79 3.86-1.82 5.59-3.05l23.71-16.89a7.978 7.978 0 0 1 4.64-1.48h12.09c3.23 0 6.15 1.94 7.39 4.93l5.35 12.85a4 4 0 0 0 3.69 2.46h3.8c1.78 0 3.35-1.18 3.84-2.88l4.2-14.47c.5-1.71 2.06-2.88 3.84-2.88h6.06c2.21 0 4 1.79 4 4v12.93c0 2.12.84 4.16 2.34 5.66l11.91 11.91c3 3 4.69 7.07 4.69 11.31v24.6z" />
+        </svg>
+        <span class="link-text">Campaigns</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/leagues" class="nav-link">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dice"
+          class="svg-inline--fa fa-dice fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+          <path fill="currentColor"
+            d="M592 192H473.26c12.69 29.59 7.12 65.2-17 89.32L320 417.58V464c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48V240c0-26.51-21.49-48-48-48zM480 376c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm-46.37-186.7L258.7 14.37c-19.16-19.16-50.23-19.16-69.39 0L14.37 189.3c-19.16 19.16-19.16 50.23 0 69.39L189.3 433.63c19.16 19.16 50.23 19.16 69.39 0L433.63 258.7c19.16-19.17 19.16-50.24 0-69.4zM96 248c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm128 128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm0-128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm0-128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm128 128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z">
+          </path>
+        </svg>
+        <span class="link-text">Match History</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/user" *ngIf="!(afAuth.authState | async)" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
+          class="svg-inline--fa fa-user fa-w-14" role="img" viewBox="0 0 448 512">
+          <path fill="currentColor"
+            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z" />
+        </svg>
+        <span class="link-text">Login</span>
+      </a>
+      <a routerLink="/user/{{user.uid}}" *ngIf="afAuth.authState | async as user" class="nav-link">
+        <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'" />
+        <span class="link-text">Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<main>
+  <ng-content></ng-content>
+</main>

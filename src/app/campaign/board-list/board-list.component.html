@@ -1,17 +1,26 @@
 <div class="grid-container">
     <div class="grid-header">
-        <h1>Campaign List</h1></div>
+        <h1>Campaign List</h1>
+    </div>
     <div class="grid-main">
         <div class="card-container">
-            <mat-card *ngFor="let board of boards; let i = index">
-                <mat-card-header><h2>{{ board.title }}</h2></mat-card-header>
+            <mat-card *ngFor="let board of boards; let i = index" class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{ board.title }}</mat-card-title>
+                    <mat-card-subtitle>{{board.tiles.length}} Tiles</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{board.description}}
+                    </p>
+                </mat-card-content>
                 <mat-card-actions>
-                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">Map</a>
-                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">Narration</a>
-                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">League Table</a>
-                    <a mat-stroked-button color="basic" routerLink="/campaign/{{board.id}}">History</a>
+                    <button mat-button routerLink="/campaign/{{board.id}}">Map</button>
+                    <button mat-button>Narrative</button>
+                    <button mat-button>Game History</button>
                 </mat-card-actions>
             </mat-card>
+
         </div>
     </div>
     <div class="grid-footer"></div>
