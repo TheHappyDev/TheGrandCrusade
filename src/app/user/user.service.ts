@@ -30,6 +30,14 @@ export class UserService {
       return this.db.collection<User>('users').doc(userId).valueChanges();
     }
   }
+  getUserNoneSub(userId: string):Observable<User>{
+    if (this.users) {
+      const cached = this.users.find(v => v.id === userId);
+      return of(cached);
+    } else {
+      return this.db.collection<User>('users').doc(userId).get()
+    }
+  }
   updateUser(userId: string, user:User){
     if (this.users) {
       this.users.filter(v => v.id !== userId);
@@ -37,7 +45,10 @@ export class UserService {
     this.db.collection<User>('users').doc(userId).update(user);
   }
   createUser(user:User){
-    this.db.collection<User>('users').add(user);
+    this.db.collection<User>('users').doc(user.id).set(user)
+    .catch(err => 
+      console.trace(err)
+      );
   }
 
 }

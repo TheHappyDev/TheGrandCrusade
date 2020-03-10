@@ -1,141 +1,124 @@
-.profile-page{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 90vh;
-    grid-gap: 50px 4vw;    
-    @media only screen and (max-width: 768px){
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 10em auto;
-    }
+.profile-page {
+  display: grid;
+  grid-template-areas: 
+  "profile hex"
+  "profile game-history";
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 30em auto;
+  grid-gap: 1em 1em;
+  @media only screen and (max-width: 768px) {
+    grid-template-areas: "profile"
+    "hex"
+    "game-history";
+    grid-template-columns: 100%;
+    grid-template-rows: auto 15em auto;
+    margin-bottom: 80px;
+  }
+}
+.hexagon {
+  grid-area: hex;
+  padding:30px;
+  margin-right: 0;
+  align-self: center;
+  position: relative;
 
 }
-.hexagon{
-    grid-column: 2;
-    grid-row: 1;
-    margin-right: 0;
-    align-self: center;
-    position: relative;
-    @media only screen and (max-width: 768px){
-      grid-column: 1;
-      grid-row: 2;
-    }
-
+.profile-info {
+  grid-area: profile;
 }
-.profile-info{
-    grid-column: 1;
-    grid-row: 1;
-    padding:50px;
-    @media only screen and (max-width: 768px){
-      grid-column: 1;
-      grid-row: 1;
+.game-history {
+  grid-area: game-history;
+  mat-card {
+    margin-bottom: 1em;
+    &.loss {
+      background-color: rgb(247, 94, 94);
     }
-
-}
-.game-history{
-    grid-column: 3;
-    grid-row: 1;
-    padding:50px;
-    @media only screen and (max-width: 768px){
-      grid-column: 1;
-      grid-row: 3;
+    &.win {
+      background-color: #39cf52;
     }
-    mat-card{
-        margin-bottom:1em;
-        &.loss
-        {
-            background-color:rgb(247, 94, 94);
-        }
-        &.win
-        {
-            background-color:#39cf52;
-        }
-    }
+  }
 }
 $color: #707070;
 $base-color: rgba($color, 0.4);
-$base-hover: rgba($color, 0.70);
-
+$base-hover: rgba($color, 0.7);
 
 @mixin hex-size($hex-size) {
   // your SCSS here, e.g.
-    width: $hex-size; 
-    height: ($hex-size * 1.7);
+  width: $hex-size;
+  height: ($hex-size * 1.7);
 }
 @mixin hex-sigil-size($hex-size) {
-  // your SCSS here, e.g.
-  max-height: $hex-size;
   max-width: $hex-size;
   min-height: $hex-size;
-  transform: translateY($hex-size/ 2.66666) rotate(90deg);
 }
-
-.mat-form-field{
-  margin:4px 8px;
+.chrome-picker-custom > div{
+  width:90% !important;
+}
+.mat-form-field {
+  margin: 4px 8px;
+  width:90%;
 }
 .hex {
-    position: absolute;
-    margin: auto;
-    // width: $hex-size; 
-    // height: ($hex-size * 1.7);
-    border-radius: 1em/.5em;
-    background: #ccc;
-    transform: rotate(-90deg);
-    display: inline-block;
-    transition: all 150ms ease-in-out;
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    @media screen and (max-width: 768px) {
-      @include hex-size(10em);
+  position: absolute;
+  margin: auto;
+  // width: $hex-size;
+  // height: ($hex-size * 1.7);
+  border-radius: 1em/0.5em;
+  background: #ccc;
+  transform: rotate(-90deg);
+  display: inline-block;
+  transition: all 150ms ease-in-out;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @media screen and (max-width: 768px) {
+    @include hex-size(7em);
+  }
+  @media screen and (min-width: 769px) {
+    @include hex-size(15em);
+  }
+}
+.hex:before,
+.hex:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: "";
+}
+.hex:before {
+  transform: rotate(60deg);
+}
+.hex:after {
+  transform: rotate(-60deg);
+}
+.hex:hover {
+  background: #f58787;
+  cursor: pointer;
+}
 
-    }
-    @media screen and (min-width: 769px) {
-      @include hex-size(20em);
-    }
+.tile-logo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  z-index: 5;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  object-fit: contain;
+  transform: rotate(90deg);
+  @media screen and (max-width: 768px) {
+    @include hex-sigil-size(6em);
   }
-  .hex:before, .hex:after {
-    position: absolute;
-    width: inherit; height: inherit;
-    border-radius: inherit;
-    background: inherit;
-    content: '';
+  @media screen and (min-width: 769px) {
+    @include hex-sigil-size(14em);
   }
-  .hex:before {
-    transform: rotate(60deg);
-  }
-  .hex:after {
-    transform: rotate(-60deg);
-  }
-  .hex:hover {
-    background: #F58787;
-    cursor: pointer;
-  }
-  
-  .tile-logo
-  {
-      height:100%;
-      width:100%;
-      object-fit: cover;
-      overflow: hidden;
-      opacity: 1;
-      position: absolute;
-      z-index: 5;
-      margin: 0 auto;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      @media screen and (max-width: 768px) {
-        @include hex-sigil-size(10em);
-  
-      }
-      @media screen and (min-width: 769px) {
-        @include hex-sigil-size(20em);
-      }
-  
-  }
-
-
-  
+}

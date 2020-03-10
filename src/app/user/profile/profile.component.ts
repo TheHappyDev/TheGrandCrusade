@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../user/user.model'
+
 import {
   FormBuilder,
   FormGroup,
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
   loading = false;
   public serverMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private userService: UserService, private fb: FormBuilder) { }
+  constructor(private snackBar: MatSnackBar, private afAuth: AngularFireAuth, private userService: UserService, private fb: FormBuilder) { }
 
   ngOnInit() {
     let loggedInUser = this.afAuth.auth.currentUser;
@@ -38,17 +39,23 @@ export class ProfileComponent implements OnInit {
 
     
   }
+  changeComplete(event){
+    this.user.color = event.color.hex;
+    this.form.controls['color'].setValue(event.color.hex);
+  }
   async onSubmit() {
     this.loading = true;
     let userUpdate = this.form.value;
 
-    debugger;
     try {
       this.userService.updateUser(this.user.id, userUpdate)
     } catch (err) {
       this.serverMessage = err;
     }
 
+    this.snackBar.open('Save Sucessful', 'OK', {
+      duration: 4000
+    });
     this.loading = false;
   }
 

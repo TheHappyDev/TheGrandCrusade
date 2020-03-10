@@ -72,6 +72,7 @@
       <a routerLink="/user/{{user.uid}}" *ngIf="afAuth.authState | async as user" class="nav-link">
         <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'" />
         <span class="link-text">Profile</span>
+        <button mat-stroked-button (click)="afAuth.auth.signOut()">Logout</button>
       </a>
     </li>
   </ul>

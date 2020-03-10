@@ -1,5 +1,6 @@
 import { User } from './../user/user.model';
 import { Timestamp } from '@firebase/firestore-types';
+import { Observable } from 'rxjs';
 
 export interface League  {
     uid: string,
@@ -19,5 +20,5 @@ export interface table {
     userid: string,
     gameswon?: number;
     gameslost?: number;
-    user? : User
+    user? : Observable<User>;
 }

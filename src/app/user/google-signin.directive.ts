@@ -12,12 +12,22 @@ export class GoogleSigninDirective {
 
   @HostListener('click')
   onclick() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {let user : User
-      user.color = '#e2e2e2';
-      user.displayName = 'new User';
-      user.sigil = '';
-      user.id = result.user.uid;
-      this.userService.createUser(user)});
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
+
+      let userExists = this.userService.getUser(result.user.uid).toPromise().then(res => {return res != null});
+
+      if(!userExists)
+      {
+        let user = {
+          color: '#e2e2e2',
+          displayName: 'user',
+          sigil: '',
+          uid: result.user.uid,
+          id: result.user.uid,
+        }
+        this.userService.createUser(user)
+      }
+    });
     
   }
 }

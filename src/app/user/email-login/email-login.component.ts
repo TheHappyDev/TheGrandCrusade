@@ -21,7 +21,7 @@ export class EmailLoginComponent implements OnInit {
 
   serverMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder, private userService: UserService) {}
+  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -81,11 +81,13 @@ export class EmailLoginComponent implements OnInit {
       }
       if (this.isSignup) {
         let newUser = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-        let user : User
-        user.color = '#e2e2e2';
-        user.displayName = 'user1';
-        user.sigil = '';
-        user.id = newUser.user.uid;
+        let user = {
+          color: '#e2e2e2',
+          displayName: 'user1',
+          sigil: '',
+          uid: newUser.user.uid,
+          id: newUser.user.uid,
+        }
         this.userService.createUser(user);
 
       }

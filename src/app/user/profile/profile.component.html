@@ -1,61 +1,50 @@
-
 <div class="profile-page" *ngIf="this.user">
-    <div class="profile-info">
+  <div class="profile-info">
     <h1>{{this.user.displayName}}</h1>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-form-field [color]="'accent'">
-                <input
-                  matInput
-                  formControlName="displayName"
-                  type="text"
-                  placeholder="display name"
-                  autocomplete="off"
-                />
-              </mat-form-field>
-            <mat-form-field [color]="'accent'">
-                <input
-                  matInput
-                  formControlName="color"
-                  type="text"
-                  placeholder="tile colour"
-                  autocomplete="off"
-                />
-              </mat-form-field>
-              <mat-form-field [color]="'accent'">
-                <input
-                  matInput
-                  formControlName="sigil"
-                  type="text"
-                  placeholder="tile sigil"
-                  autocomplete="off"
-                />
-              </mat-form-field>
-              <button
-        mat-raised-button
-        [color]="'accent'"
-        type="submit"
-        [disabled]="loading"
-      >
-        Update app-profile
-      </button>
-  </form>
-    </div>
-    <div class="hexagon">
-        <div class="hex" [ngStyle]="{'background-color': this.user.color}">
-          <img src="{{this.user.sigil}}" class="tile-logo"/>
-        </div>
-    </div>
-    <div class="game-history">
-        <h2>Match History</h2>
-        <mat-card class="loss">
-            <mat-card-content><h3>Lost</h3><span>You lost to X</span></mat-card-content>
-        </mat-card>
-        <mat-card class="win">
-            <mat-card-content><h3>Lost</h3><span>You beat X</span></mat-card-content>
-        </mat-card>
-        <mat-card class="loss">
-            <mat-card-content><h3>Lost</h3><span>You lost to X</span></mat-card-content>
-        </mat-card>
 
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field [color]="'accent'">
+        <input matInput formControlName="displayName" type="text" placeholder="display name" autocomplete="off" />
+      </mat-form-field>
+
+      <mat-form-field [color]="'accent'">
+        <color-chrome  [color]="this.user.color" (onChangeComplete)="changeComplete($event)"></color-chrome>
+        <input matInput formControlName="color" type="text" placeholder="tile colour" autocomplete="off" hidden />
+
+      </mat-form-field>
+      <mat-form-field [color]="'accent'">
+        <uploader></uploader>
+        <input matInput formControlName="sigil" type="text" placeholder="tile sigil" autocomplete="off" hidden />
+      </mat-form-field>
+        <button mat-raised-button [color]="'accent'" type="submit" [disabled]="loading">
+          Update app-profile
+        </button>
+    </form>
+  </div>
+  <div class="hexagon">
+    <div class="hex" [ngStyle]="{'background-color': this.user.color}">
+      <div class="hex-logo">
+        <img src="{{this.user.sigil}}" class="tile-logo" />
+      </div>
     </div>
+  </div>
+  <div class="game-history">
+    <h2>Match History</h2>
+    <mat-card class="loss">
+      <mat-card-content>
+        <h3>Lost</h3><span>You lost to X</span>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="win">
+      <mat-card-content>
+        <h3>Lost</h3><span>You beat X</span>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="loss">
+      <mat-card-content>
+        <h3>Lost</h3><span>You lost to X</span>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
 </div>

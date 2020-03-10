@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { of, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { League, Season } from './league.model';
 
 @Injectable({
