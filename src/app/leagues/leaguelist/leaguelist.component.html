@@ -3,7 +3,6 @@
 
     <div *ngIf="this.pendingLeagues">
       <h1>Pending Leagues Invites</h1>
-      <p>Template page, under construction</p>
       <mat-card class="league-card" *ngFor="let league of this.pendingLeagues">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
@@ -25,7 +24,6 @@
     </div>
 <div>
   <h1>Your Leagues</h1>
-  <p>Template page, under construction</p>
   <mat-card class="league-card" *ngFor="let league of this.userLeagues">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -36,7 +34,7 @@
       </mat-card-header>
       <mat-card-content>
         <p>
-         {{league.description}}
+         {{league.description}} - {{league.user.displayName}}
          
         </p>
       </mat-card-content>

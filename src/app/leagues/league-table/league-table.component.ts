@@ -12,21 +12,22 @@ import { UserService } from './../../user/user.service'
 export class LeagueTableComponent implements OnInit {
 
   private id: string;
-  public seasons : Season[];
+  public seasons: Season[];
   displayedColumns = ['commander', 'played', 'wins', 'losses'];
   constructor(private route: ActivatedRoute, private leagueService: LeagueService, private userService: UserService) { }
 
+
   async ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-
-    this.leagueService.getCurrentSeason(this.id).subscribe(seasons => {
-      seasons.forEach(season => {
-        season.table.forEach(tableUser => {
-          tableUser.user = this.userService.getUser(tableUser.userid);
-        });
-      });
+    
+    this.leagueService.getSeasons(this.id).subscribe(seasons => {
+      
       this.seasons = seasons;
-    });
+       
+      });
+  
+    
+
 
   }
 

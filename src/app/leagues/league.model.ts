@@ -9,16 +9,18 @@ export interface League  {
     pendingInvites?: string[];
     name?: string;
     private?: boolean;
+    user? : User;
 }
 export interface Season  {
     start?: Timestamp;
     end?: Timestamp;
     table?: table[];
     seasonNumber: number;
+    user? : User;
 }
 export interface table {
     userid: string,
     gameswon?: number;
     gameslost?: number;
-    user? : Observable<User>;
+    user? : User;
 }
