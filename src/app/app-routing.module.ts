@@ -21,7 +21,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./leagues/leagues.module').then(m => m.LeaguesModule),
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: ':type/match',
+    loadChildren: () =>
+      import('./matches/matches.module').then(m => m.MatchesModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

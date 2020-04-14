@@ -17,13 +17,13 @@
         <input matInput formControlName="sigil" type="text" placeholder="tile sigil" autocomplete="off" hidden />
       </mat-form-field>
         <button mat-raised-button [color]="'accent'" type="submit" [disabled]="loading">
-          Update app-profile
+          Save
         </button>
     </form>
   </div>
   <div class="hexagon">
     <div class="hex" [ngStyle]="{'background-color': this.user.color}">
-      <div class="hex-logo">
+      <div class="hex-logo" *ngIf="this.user.sigil">
         <img src="{{this.user.sigil}}" class="tile-logo" />
       </div>
     </div>

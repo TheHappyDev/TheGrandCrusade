@@ -11,21 +11,28 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { ShellComponent } from './shell/shell.component';
 import { ColorSketchModule } from 'ngx-color/sketch';
 import { ColorChromeModule } from 'ngx-color/chrome';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {AngularFireStorageModule} from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SafeHtml } from './../safe-html.pipe';
 
 const components = [ShellComponent, UploaderComponent, UploadTaskComponent];
 
 const modules = [
   CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
   MatButtonModule,
   MatButtonModule,
   MatToolbarModule,
@@ -40,19 +47,23 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
-  RouterModule, 
+  MatExpansionModule,
+  MatSelectModule,
+  RouterModule,
   ColorSketchModule,
   AngularFirestoreModule,
   ColorChromeModule,
-  AngularFireStorageModule
+  AngularFireStorageModule,
+  DragDropModule
 ];
 
 @NgModule({
-  declarations: [...components, DropzoneDirective],
+  declarations: [...components, DropzoneDirective, SafeHtml],
   imports: [...modules],
   exports: [
     ...components,
     ...modules,
+    SafeHtml
   ]
 })
-export class SharedModule {}
+export class SharedModule { }

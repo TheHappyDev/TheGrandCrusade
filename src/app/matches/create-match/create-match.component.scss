@@ -1,0 +1,46 @@
+.rerollable-section {
+  position: relative;
+  .reroll {
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+.new-match-page {
+  display: grid;
+  grid-template-areas:
+    "players players"
+    "mission deployment"
+    "secondary1 secondary2";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-gap: 1em 1em;
+  @media only screen and (max-width: 768px) {
+    grid-template-areas:
+      "players"
+      "mission"
+      "deployment"
+      "secondary1"
+      "secomndary2";
+    grid-template-columns: 100%;
+    grid-template-rows: auto 15em auto;
+    margin-bottom: 80px;
+  }
+}
+.players {
+  grid-area: players;
+}
+.mission {
+  grid-area: mission;
+}
+.deployment {
+  grid-area: deployment;
+}
+.secondary1 {
+  grid-area: secondary1;
+}
+.secondary2 {
+  grid-area: secondary2;
+}

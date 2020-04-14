@@ -316,6 +316,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   border-radius: 5px;
   background: white;
   margin: 10px 0;
+  padding:4px;
 
   &.hovering {
       border: 2px solid #f16624;

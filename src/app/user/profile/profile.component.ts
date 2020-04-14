@@ -9,6 +9,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,10 +23,10 @@ export class ProfileComponent implements OnInit {
   loading = false;
   public serverMessage: string;
 
-  constructor(private snackBar: MatSnackBar, private afAuth: AngularFireAuth, private userService: UserService, private fb: FormBuilder) { }
+  constructor(private snackBar: MatSnackBar, private afAuth: AuthService, private userService: UserService, private fb: FormBuilder) { }
 
-  ngOnInit() {
-    let loggedInUser = this.afAuth.auth.currentUser;
+  async ngOnInit() {
+    let loggedInUser = await this.afAuth.getUser();
 
     this.userService.getUser(loggedInUser.uid).subscribe(u => {this.form = this.fb.group({
       displayName: [u.displayName,[Validators.minLength(3), Validators.required]],

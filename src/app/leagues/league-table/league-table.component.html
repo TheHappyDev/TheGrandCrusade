@@ -1,6 +1,8 @@
 <div *ngFor="let season of this.seasons">
     
+    <a mat-stroked-button primary class="create-button" routerLink="/league/match/{{this.leagueId}}">New Match</a>
     <h1> Season {{season.seasonNumber}} </h1>
+    
     <div class="sub-header" *ngIf="season.start">{{season.start.toDate() | date:'yyyy/MM/dd'}} - 
         {{season.end.toDate() | date:'yyyy/MM/dd'}}</div>
     <div class="example-container mat-elevation-z8">
