@@ -89,13 +89,18 @@
 </div>
 <div class="secondary2">
   <h4>Secondary Mission Objectives</h4>
-  <mat-accordion>
+  <mat-accordion  class="accordion">
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-      *ngFor="let secondary of this.secondaries">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{secondary.name}}
+      *ngFor="let secondary of this.secondaries" class="accordion-panel">
+      <mat-expansion-panel-header class="accordion">
+        <mat-checkbox (change)="onSecondaryChange($event)" [value]="secondary.id" class="accordion-select" color="primary" 
+        (click)="$event.stopPropagation()" 
+        (keydown)="$event.stopPropagation()">
+        </mat-checkbox>
+          <mat-panel-title>
+            {{secondary.name}}
         </mat-panel-title>
+        
         <mat-panel-description>
 
         </mat-panel-description>

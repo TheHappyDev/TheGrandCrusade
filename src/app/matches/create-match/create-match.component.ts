@@ -78,5 +78,8 @@ export class CreateMatchComponent implements OnInit {
   addRound(round : Round){
 
   }
+  onSecondaryChange(event){
+    
+  }
 
 }

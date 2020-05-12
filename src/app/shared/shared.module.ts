@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ShellComponent } from './shell/shell.component';
 import { ColorSketchModule } from 'ngx-color/sketch';
@@ -49,6 +51,7 @@ const modules = [
   MatSnackBarModule,
   MatExpansionModule,
   MatSelectModule,
+  MatCheckboxModule,
   RouterModule,
   ColorSketchModule,
   AngularFirestoreModule,
