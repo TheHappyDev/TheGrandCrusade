@@ -39,6 +39,7 @@ export interface GameType {
     type: string;
     description: string;
     imageUrl: string;
+    selected?: boolean;
   }
   export interface Secondary{
       id: number;

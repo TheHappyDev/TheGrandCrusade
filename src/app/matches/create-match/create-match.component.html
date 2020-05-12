@@ -46,7 +46,7 @@
 <div class="deployment">
   <div class="rerollable-section">
     <h4>Deployment</h4>
-    <div class="reroll">
+    <div class="reroll" (click)="random()">
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dice"
         class="svg-inline--fa fa-dice fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
         <path fill="currentColor"
@@ -58,15 +58,21 @@
 
   <mat-accordion>
     <mat-expansion-panel *ngFor="let deployment of this.deployments">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="accordion">
+        
         <mat-panel-title>
+          <mat-checkbox (change)="onDeploymentChange(deployment.id)" [checked]="deployment.selected" [value]="deployment.id" class="accordion-select" color="primary" 
+        (click)="$event.stopPropagation()" 
+        (keydown)="$event.stopPropagation()">
+        </mat-checkbox>
           {{deployment.name}}
         </mat-panel-title>
         <mat-panel-description>
-
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <img src="~/src/assets/Horus.png">
+      <p>This is placeholder thing</p>
+{{this.selectedDeployment}}
+      <p>{{deployment.description}}</p>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
