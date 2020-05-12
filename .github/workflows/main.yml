@@ -27,7 +27,7 @@ jobs:
         run: npm install
       # Runs a set of commands to build
       - name: Build
-        run: npm run build --prod base
+        run: npm run build --prod
       # sotre the artifact
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
