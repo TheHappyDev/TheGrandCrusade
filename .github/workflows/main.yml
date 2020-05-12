@@ -27,7 +27,7 @@ jobs:
         run: npm install
       # Runs a set of commands to build
       - name: Build
-        run: npm run build --prod base
+        run: npm build --prod --base-href ./
       # sotre the artifact
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
@@ -50,6 +50,6 @@ jobs:
       - name: Deploy angular app to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting
+          args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.firebase_token }}
