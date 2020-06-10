@@ -33,7 +33,7 @@ export interface GameType {
     imageUrl: string;
   }
 
-  export interface Deployments {
+  export interface Deployment {
     id?: number;
     name: string;
     type: string;
